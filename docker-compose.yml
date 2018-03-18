@@ -1,0 +1,39 @@
+mysql:
+  restart: always
+  image: mysql:latest
+  container_name: 'dbs-mysql'
+  ports:
+    - 3306:3306
+  volumes:
+    - ./datadir/mysql:/var/lib/mysql
+  environment:
+    - MYSQL_USER=${USER}
+    - MYSQL_PASSWORD=${PASSWORD}
+    - MYSQL_ROOT_PASSWORD=${ROOT_PASSWORD}
+    - MYSQL_DATABASE=${DATABASE}
+
+postgres:
+  restart: always
+  image: postgres:latest
+  container_name: 'dbs-postgres'
+  ports:
+    - 5432:5432
+  volumes:
+    - ./datadir/postgres:/var/lib/postgresql/data
+  environment:
+    - POSTGRES_USER=${USER}
+    - POSTGRES_PASSWORD=${PASSWORD}
+    - POSTGRES_DB=${DATABASE}
+
+mongodb:
+  image: mongo:latest
+  container_name: 'dbs-mongodb'
+  environment:
+    - MONGODB_USER=${USER}
+    - MONGODB_PASS=${PASSWORD}
+    - MONGO_DATA_DIR=/var/lib/mongodb/data/db
+    - MONGO_LOG_DIR=/var/lib/mongodb/log
+  volumes:
+    - ./datadir/mongodb/data/db:/var/lib/mongodb/data/db
+  ports:
+    - 27017:27017
