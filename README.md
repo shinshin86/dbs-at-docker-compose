@@ -47,3 +47,11 @@ psql -h localhost -U {your_db_user_name} -d {database_name}
 mongo
 ```
 
+#### How to delete containers
+
+To delete all docker containers, execute ``allclear.sh``.
+
+```bash
+./allclear.sh
+```
+
