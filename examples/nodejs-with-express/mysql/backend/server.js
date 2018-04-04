@@ -6,6 +6,9 @@ var express = require("express"),
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
+// development mode
+app.use(require('./middlewares/accessControlAllow'))
+
 // importing route
 var routes = require('./api/routes/userRoutes');
 routes(app);
