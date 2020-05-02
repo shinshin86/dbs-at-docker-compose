@@ -46,3 +46,11 @@ services:
       - ./datadir/redis:/data
     ports:
       - 6379:6379
+
+  memcached:
+    image: memcached:latest
+    container_name: 'dbs-memcached'
+    volumes:
+      - ./datadir/memcached:/data
+    ports:
+      - 11211:11211

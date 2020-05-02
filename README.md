@@ -59,6 +59,9 @@ mongo
 
 # redis
 redis-cli
+
+# memcached
+telnet localhost 11211
 ```
 
 #### How to delete containers
