@@ -56,6 +56,9 @@ psql -h localhost -U {your_db_user_name} -d {database_name}
 # MongoDB
 # This is initial state, Please use only development at local.
 mongo
+
+# redis
+redis-cli
 ```
 
 #### How to delete containers

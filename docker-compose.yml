@@ -38,3 +38,11 @@ services:
       - ./datadir/mongodb/data/db:/var/lib/mongodb/data/db
     ports:
       - 27017:27017
+
+  redis:
+    image: redis:latest
+    container_name: 'dbs-redis'
+    volumes:
+      - ./datadir/redis:/data
+    ports:
+      - 6379:6379
