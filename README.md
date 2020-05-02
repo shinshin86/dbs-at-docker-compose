@@ -4,6 +4,16 @@ Multipul Databases At Docker Compose
 
 
 
+## System required
+
+This "docker-compose.yml" specifies the `version: "3.7"`.
+
+You can check if your "docker-compose" meets the requirements here.
+
+[Compose and Docker compatibility matrix(docker docs)](https://docs.docker.com/compose/compose-file/#compose-and-docker-compatibility-matrix)
+
+
+
 ## Usage
 
 Write your setting to ``.env`` file
@@ -28,7 +38,8 @@ vi .env # write your setting
 #### And docker compose run!!
 
 ```bash
-docker-compose up
+# Run containers in the background
+docker-compose up -d
 ```
 
 
