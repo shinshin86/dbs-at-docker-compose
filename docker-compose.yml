@@ -1,37 +1,40 @@
-mysql:
-  image: mysql:latest
-  container_name: 'dbs-mysql'
-  ports:
-    - 3306:3306
-  volumes:
-    - ./datadir/mysql:/var/lib/mysql
-  environment:
-    - MYSQL_USER=${DB_USER}
-    - MYSQL_PASSWORD=${DB_PASSWORD}
-    - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
-    - MYSQL_DATABASE=${DB_NAME}
+version: "3.7"
+services:
 
-postgres:
-  image: postgres:latest
-  container_name: 'dbs-postgres'
-  ports:
-    - 5432:5432
-  volumes:
-    - ./datadir/postgres:/var/lib/postgresql/data
-  environment:
-    - POSTGRES_USER=${DB_USER}
-    - POSTGRES_PASSWORD=${DB_PASSWORD}
-    - POSTGRES_DB=${DB_NAME}
+  mysql:
+    image: mysql:latest
+    container_name: 'dbs-mysql'
+    ports:
+      - 3306:3306
+    volumes:
+      - ./datadir/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
 
-mongodb:
-  image: mongo:latest
-  container_name: 'dbs-mongodb'
-  environment:
-    - MONGODB_USER=${DB_USER}
-    - MONGODB_PASS=${DB_PASSWORD}
-    - MONGO_DATA_DIR=/var/lib/mongodb/data/db
-    - MONGO_LOG_DIR=/var/lib/mongodb/log
-  volumes:
-    - ./datadir/mongodb/data/db:/var/lib/mongodb/data/db
-  ports:
-    - 27017:27017
+  postgres:
+    image: postgres:latest
+    container_name: 'dbs-postgres'
+    ports:
+      - 5432:5432
+    volumes:
+      - ./datadir/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+
+  mongodb:
+    image: mongo:latest
+    container_name: 'dbs-mongodb'
+    environment:
+      - MONGODB_USER=${DB_USER}
+      - MONGODB_PASS=${DB_PASSWORD}
+      - MONGO_DATA_DIR=/var/lib/mongodb/data/db
+      - MONGO_LOG_DIR=/var/lib/mongodb/log
+    volumes:
+      - ./datadir/mongodb/data/db:/var/lib/mongodb/data/db
+    ports:
+      - 27017:27017
