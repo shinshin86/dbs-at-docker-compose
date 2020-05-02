@@ -1,5 +1,8 @@
-docker rm dbs-mysql
-docker rm dbs-postgres
-docker rm dbs-mongodb
+# remove docker containers
+docker rm -f dbs-mysql
+docker rm -f dbs-postgres
+docker rm -f dbs-mongodb
+
+# clear data dir
 rm -rf datadir/
 mkdir datadir
