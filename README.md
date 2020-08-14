@@ -47,21 +47,29 @@ docker-compose up -d
 #### Connect databases
 
 ```bash
-# MySQL
+### MySQL
 mysql -u {your_db_user_name} -h localhost {database_name} --protocol=tcp -p
 
-# Postgres
+### Postgres
 psql -h localhost -U {your_db_user_name} -d {database_name}
 
-# MongoDB
+### MongoDB
 # This is initial state, Please use only development at local.
 mongo
 
-# redis
+### redis
 redis-cli
 
-# memcached
+### memcached
 telnet localhost 11211
+
+### Couch DB
+curl -X GET http://{your_db_user_name}:{your_db_password}@127.0.0.1:5984/_all_dbs
+# Create "exampledb"
+curl -X PUT http://{your_db_user_name}:{your_db_password}@127.0.0.1:5984/exampledb
+# Check all dbs
+curl -X GET http://{your_db_user_name}:{your_db_password}@127.0.0.1:5984/_all_dbs
+# => ["exampledb"]
 ```
 
 #### How to delete containers

@@ -39,6 +39,17 @@ services:
     ports:
       - 27017:27017
 
+  couchdb:
+    image: couchdb:latest
+    container_name: 'dbs-couchdb'
+    environment:
+     - COUCHDB_USER=${DB_USER}
+     - COUCHDB_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./datadir/couchdb:/var/lib/couchdb/data
+    ports:
+      - 5984:5984
+
   redis:
     image: redis:latest
     container_name: 'dbs-redis'
