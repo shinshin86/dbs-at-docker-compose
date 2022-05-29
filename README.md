@@ -6,7 +6,7 @@ Multipul Databases At Docker Compose
 
 ## System required
 
-This "docker-compose.yml" specifies the `version: "3.7"`.
+This `docker-compose.yml` specifies the `version: "3.9"`.
 
 You can check if your "docker-compose" meets the requirements here.
 
